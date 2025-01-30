@@ -2,6 +2,8 @@
 
 GDB Pretty Printers for `libc++` of Clang/LLVM.
 
+SOME PRINTERS NOT WORKING, SEE COMENTS IN printers.py
+
 ## Example `~/.gdbinit`
 
 ```shell
