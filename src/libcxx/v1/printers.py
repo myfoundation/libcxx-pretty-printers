@@ -1,3 +1,7 @@
+##################################################
+# SOME PRINTERS NOT WORKING, SEE COMENTS AT END
+##################################################
+
 # Pretty-printers for libc++.
 
 # Copyright (C) 2008-2013 Free Software Foundation, Inc.
@@ -158,7 +162,7 @@ class StringPrinter:
                 len = sl['__size_']
                 ptr = sl['__data_']
 
-        return ptr.string()
+        return u''.join(chr(ptr[i]) for i in range(len))
 
     def display_hint(self):
         return 'string'
@@ -1058,8 +1062,8 @@ def build_libcxx_dictionary():
     printer.add('bitset', BitsetPrinter)
     printer.add('deque', DequePrinter)
     printer.add('list', ListPrinter)
-    printer.add('map', MapPrinter)
-    printer.add('multimap', MapPrinter)
+#    printer.add('map', MapPrinter)
+#    printer.add('multimap', MapPrinter)
     printer.add('multiset', SetPrinter)
     printer.add('priority_queue', StackOrQueuePrinter)
     printer.add('queue', StackOrQueuePrinter)
@@ -1069,11 +1073,11 @@ def build_libcxx_dictionary():
     printer.add('stack', StackOrQueuePrinter)
     printer.add('unique_ptr', UniquePointerPrinter)
     printer.add('vector', VectorPrinter)  # Includes vector<bool>.
-    #printer.add('shared_ptr', SharedPointerPrinter)
-    #printer.add('weak_ptr', SharedPointerPrinter)
-    printer.add('unordered_map', UnorderedMapPrinter)
+#    printer.add('shared_ptr', SharedPointerPrinter)
+#    printer.add('weak_ptr', SharedPointerPrinter)
+#    printer.add('unordered_map', UnorderedMapPrinter)
     printer.add('unordered_set', UnorderedSetPrinter)
-    printer.add('unordered_multimap', UnorderedMapPrinter)
+#    printer.add('unordered_multimap', UnorderedMapPrinter)
     printer.add('unordered_multiset', UnorderedSetPrinter)
     printer.add('forward_list', ForwardListPrinter)
     # For std::array the default GDB pretty-printer seems reasonable.
@@ -1084,10 +1088,10 @@ def build_libcxx_dictionary():
     printer.add('__tree_const_iterator', RbtreeIteratorPrinter)
     printer.add('__hash_iterator', HashtableIteratorPrinter)
     printer.add('__hash_const_iterator', HashtableIteratorPrinter)
-    printer.add('__hash_map_iterator', UnorderedMapIteratorPrinter)
-    printer.add('__hash_map_const_iterator', UnorderedMapIteratorPrinter)
-    printer.add('__map_iterator', MapIteratorPrinter)
-    printer.add('__map_const_iterator', MapIteratorPrinter)
+#    printer.add('__hash_map_iterator', UnorderedMapIteratorPrinter)
+#    printer.add('__hash_map_const_iterator', UnorderedMapIteratorPrinter)
+#    printer.add('__map_iterator', MapIteratorPrinter)
+#    printer.add('__map_const_iterator', MapIteratorPrinter)
     printer.add('__deque_iterator', DequeIteratorPrinter)
     printer.add('__wrap_iter', VectorIteratorPrinter)
     printer.add('__bit_iterator', VectorBoolIteratorPrinter)
